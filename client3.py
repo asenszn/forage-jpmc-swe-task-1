@@ -66,7 +66,7 @@ if __name__ == "__main__":
             stock, bid_price, ask_price, price = getDataPoint(quote)
             prices[stock] = price
             #stores price of the stock
-            #helps the figure the ratio between different stocks
+            #helps the figure the ratio between the two different stocks
             print("Quoted %s at (bid:%s, ask:%s, price:%s)" % (stock, bid_price, ask_price, price))
 
         print("Ratio %s" % getRatio(prices['ABC'], prices['DEF']))
