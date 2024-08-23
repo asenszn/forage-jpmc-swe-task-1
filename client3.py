@@ -35,23 +35,14 @@ def getDataPoint(quote):
     stock = quote['stock']
     bid_price = float(quote['top_bid']['price'])
     ask_price = float(quote['top_ask']['price'])
-    price = (bid_price + ask_price) / 2
-    # the price will be the average between the highest price and lowest price
+    price = bid_price
     return stock, bid_price, ask_price, price
 
 
 def getRatio(price_a, price_b):
-    #price of one stock and price of another stock
-    #and get the ratio
-    #make sure price_b == 0 because dividing by zero will lead to an error
-    #we don't do price_a because 0/price_b is well defined 
-    if (price_b == 0) :
-        return
-
     """ Get ratio of price_a and price_b """
     """ ------------- Update this function ------------- """
-    return (price_a / price_b)
-
+    return 
 
 # Main
 if __name__ == "__main__":
@@ -60,15 +51,14 @@ if __name__ == "__main__":
         quotes = json.loads(urllib.request.urlopen(QUERY.format(random.random())).read())
 
         """ ----------- Update to get the ratio --------------- """
-        prices = {}
+       
         #intialises key values, which are the stock symbols 'ABC' and 'DEF'
         for quote in quotes:
             stock, bid_price, ask_price, price = getDataPoint(quote)
-            prices[stock] = price
             #stores price of the stock
             #helps the figure the ratio between different stocks
             print("Quoted %s at (bid:%s, ask:%s, price:%s)" % (stock, bid_price, ask_price, price))
 
-        print("Ratio %s" % getRatio(prices['ABC'], prices['DEF']))
+        print("Ratio %s" % getRatio()
         #ABC is the first stock
         #DEF is the second stock
